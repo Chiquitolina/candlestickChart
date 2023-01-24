@@ -34,13 +34,11 @@
             <option value="30m">30m</option>
             <option value="1h">1h</option>
             <option value="4h">4h</option>
-            <option value="12h">4h</option>
+            <option value="12h">12h</option>
             <option value="1d" selected>1d</option>
             <option value="1w">1 week</option>
         </select>
     </div>
-</div>
-<div class="w-50">
     <p class="w-100 bg-dark mb-0 text-white">Candle's limit:</p>
     <div class="w-100 d-flex bg-dark mt-0 text-white">
         <select class="form-select w-50 mb-2" name="select" id="selll" onchange="actualizarChart()">
@@ -53,6 +51,16 @@
             <option value="500" selected>500</option>
             <option value="1000">1000</option>
         </select>
+    </div>
+</div>
+<div class="w-50">
+    <p class="w-100 bg-dark mb-0 text-white">start Time:</p>
+    <div class="w-100 d-flex bg-dark mt-0 text-white">
+        <input type="date" class="form-select w-50 mb-2" name="select" id="selll" onchange="actualizarChart()">
+    </div>
+        <p class="w-100 bg-dark mb-0 text-white">end Time:</p>
+        <div class="w-100 d-flex bg-dark mt-0 text-white">
+            <input type="date" class="form-select w-50 mb-2" name="select" id="selll" onchange="actualizarChart()">
     </div>
 </div>
 </div>
