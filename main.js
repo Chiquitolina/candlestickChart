@@ -6,68 +6,18 @@ let contenedorChartBinance = document.getElementById('contenedorchartBinance')
 
 
 
- /*  function dibujarChart(data, idcoin) {
+function dibujarChart(data, symbol) {
 
-    let options = {
-        series: [{
-            data: []
-        }],
-        chart: {
-            type: 'candlestick',
-            height: 530
-        },
-        title: {
-            text: idcoin + ' Chart',
-            align: 'left'
-        },
-        xaxis: {
-            type: 'datetime'
-        },
-        yaxis: {
-            tooltip: {
-                enabled: true
-            }
-        }
-    };
-
-    data.forEach(dato => {
-        options.series[0].data.push(dato)
-    });
-
-    contenedorChart.innerHTML = '<div id="chart"></div>'
-
-    let chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
-
-    
-
-}
-
-function actualizarChart() {
-    let opcionseleccionada = select.selectedOptions[0].value
-    traerKDatos(opcionseleccionada)
-}
-
- */
-
-function traerKDatosBinance(symbol, interval, numerodevelas) {
-
-    fetch('https://api.binance.com/api/v3/klines?symbol=' + symbol + '&interval=' + interval + '&limit=' + numerodevelas)
-        .then(response => response.json())
-        .then(data => {
-
-            console.log(data)
-
-            let options = {
+     let options = {
                 series: [{
                     data: []
                 }],
                 chart: {
                     type: 'candlestick',
-                    height: 530
+                    height: 480
                 },
                 title: {
-                    text: ' Chart',
+                    text: symbol + ' Chart',
                     align: 'left'
                 },
                 xaxis: {
@@ -95,6 +45,18 @@ function traerKDatosBinance(symbol, interval, numerodevelas) {
         
             let chartBinance = new ApexCharts(document.querySelector("#chartBinance"), options);
             chartBinance.render();
+
+    
+
+}
+
+function traerKDatosBinance(symbol, interval, numerodevelas) {
+
+    fetch('https://api.binance.com/api/v3/klines?symbol=' + symbol + '&interval=' + interval + '&limit=' + numerodevelas)
+        .then(response => response.json())
+        .then(data => {
+
+            dibujarChart(data, symbol)
 
         }
         )

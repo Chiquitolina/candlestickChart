@@ -14,28 +14,36 @@
 </head>
 
 <body>
-
-    <p class="w-100 bg-dark mb-0 text-white">Select chart:</p>
+<div class="d-flex w-100 bg-dark">
+<div class="w-50">
+    <p class="w-100 bg-dark mb-0 text-white">Currency:</p>
     <div class="w-100 d-flex bg-dark mt-0 text-white">
-        <select class="form-select w-25 mb-2" name="select" id="sel" onchange="actualizarChart()">
+        <select class="form-select w-50 mb-2" name="select" id="sel" onchange="actualizarChart()">
             <option value="BTCUSDT" selected>Bitcoin (BTC)</option>
             <option value="ETHUSDT">Ethereum (ETH)</option>
             <option value="BNBUSDT">Binance Coin (BNB)</option>
             <option value="SOLUSDT">Solana (SOL)</option>
         </select>
     </div>
-    <p class="w-100 bg-dark mb-0 text-white">Select interval:</p>
+    <p class="w-100 bg-dark mb-0 text-white">Interval:</p>
     <div class="w-100 d-flex bg-dark mt-0 text-white">
-        <select class="form-select w-25 mb-2" name="select" id="sell" onchange="actualizarChart()">
-            <option value="1h" selected>1h</option>
+        <select class="form-select w-50 mb-2" name="select" id="sell" onchange="actualizarChart()">
+            <option value="1m">1m</option>
+            <option value="5m">5m</option>
+            <option value="15m">15m</option>
+            <option value="30m">30m</option>
+            <option value="1h">1h</option>
             <option value="4h">4h</option>
-            <option value="1d">24h</option>
+            <option value="12h">4h</option>
+            <option value="1d" selected>1d</option>
             <option value="1w">1 week</option>
         </select>
     </div>
-    <p class="w-100 bg-dark mb-0 text-white">Select candle's limit:</p>
+</div>
+<div class="w-50">
+    <p class="w-100 bg-dark mb-0 text-white">Candle's limit:</p>
     <div class="w-100 d-flex bg-dark mt-0 text-white">
-        <select class="form-select w-25 mb-2" name="select" id="selll" onchange="actualizarChart()">
+        <select class="form-select w-50 mb-2" name="select" id="selll" onchange="actualizarChart()">
             <option value="1" selected>1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -43,6 +51,8 @@
             <option value="1000">1000</option>
         </select>
     </div>
+</div>
+</div>
    
     <div id="lowcont">
 
