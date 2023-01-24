@@ -1,26 +1,12 @@
 let select = document.getElementById('sel')
+let selectt = document.getElementById('sell')
+let selecttt = document.getElementById('selll')
 let contenedorChart = document.getElementById('contenedorchart')
+let contenedorChartBinance = document.getElementById('contenedorchartBinance')
 
-function traerPDatos(idcoin) {
-    fetch()
-}
 
-function traerKDatos(idcoin) {
 
-    fetch('https://api.coingecko.com/api/v3/coins/' + idcoin + '/ohlc?vs_currency=usd&days=max')
-        .then(response => response.json())
-        .then(data => {
-
-            dibujarChart(data, idcoin)
-
-        }
-        )
-
-}
-
-traerKDatos('bitcoin')
-
-function dibujarChart(data, idcoin) {
+ /*  function dibujarChart(data, idcoin) {
 
     let options = {
         series: [{
@@ -53,12 +39,75 @@ function dibujarChart(data, idcoin) {
     let chart = new ApexCharts(document.querySelector("#chart"), options);
     chart.render();
 
+    
+
 }
 
 function actualizarChart() {
     let opcionseleccionada = select.selectedOptions[0].value
     traerKDatos(opcionseleccionada)
 }
+
+ */
+
+function traerKDatosBinance(symbol, interval, numerodevelas) {
+
+    fetch('https://api.binance.com/api/v3/klines?symbol=' + symbol + '&interval=' + interval + '&limit=' + numerodevelas)
+        .then(response => response.json())
+        .then(data => {
+
+            console.log(data)
+
+            let options = {
+                series: [{
+                    data: []
+                }],
+                chart: {
+                    type: 'candlestick',
+                    height: 530
+                },
+                title: {
+                    text: ' Chart',
+                    align: 'left'
+                },
+                xaxis: {
+                    type: 'datetime'
+                },
+                yaxis: {
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            };
+        
+            data.forEach(dato => {
+                let datoparachart = []
+                datoparachart.push(dato[0])
+                datoparachart.push(parseFloat(dato[1]))
+                datoparachart.push(parseFloat(dato[2]))
+                datoparachart.push(parseFloat(dato[3]))
+                datoparachart.push(parseFloat(dato[4]))
+                options.series[0].data.push(datoparachart)
+            });
+
+        
+            contenedorChartBinance.innerHTML = '<div id="chartBinance"></div>'
+        
+            let chartBinance = new ApexCharts(document.querySelector("#chartBinance"), options);
+            chartBinance.render();
+
+        }
+        )
+}
+
+function actualizarChart() {
+    let opcionseleccionada = select.selectedOptions[0].value
+    let limitevelasseleccionado = selecttt.selectedOptions[0].value
+    let intervaloseleccionado = selectt.selectedOptions[0].value
+    traerKDatosBinance(opcionseleccionada, intervaloseleccionado, limitevelasseleccionado)
+}
+
+traerKDatosBinance('BTCUSDT', '1d', 500)
 
 
 
