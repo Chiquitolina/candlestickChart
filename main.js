@@ -4,8 +4,10 @@ let selecttt = document.getElementById('selll')
 let contenedorChart = document.getElementById('contenedorchart')
 let contenedorChartBinance = document.getElementById('contenedorchartBinance')
 
-
-
+function crearOptionsCandlesLimit()
+ {
+    let options = []
+ }
 function dibujarChart(data, symbol) {
 
      let options = {
