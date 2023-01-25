@@ -12,83 +12,136 @@
     <title>Charts</title>
 
 </head>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">MyTradingViewXD</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column w-100">
+            <form class="d-flex w-100 justify-content-center" role="search">
+                <input class="form-control me-2 w-25" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            <div class="d-flex flex-wrap justify-content-center">
+          <li class="nav-item">
+            <label>
+                <p class="w-100 mb-0 text-black bold">Currency:</p>
+                <div class="contFilt d-flex mt-0 text-white">
+                    <select class="form-select w-50 mb-2" name="select" id="sel" onchange="actualizarChart()">
+                        <option value="BTCUSDT" selected>Bitcoin (BTC)</option>
+                        <option value="ETHUSDT">Ethereum (ETH)</option>
+                        <option value="BNBUSDT">Binance Coin (BNB)</option>
+                        <option value="SOLUSDT">Solana (SOL)</option>
+                    </select>
+                </div>
+            </label>
+          </li>
+          <li class="nav-item">
+            <label>
+                <p class="w-100 mb-0 text-black bold">Interval:</p>
+                <div class="contFilt d-flex mt-0 text-white">
+                    <select class="form-select w-50 mb-2" name="select" id="sell" onchange="actualizarChart()">
+                        <option value="1m">1m</option>
+                        <option value="5m">5m</option>
+                        <option value="15m">15m</option>
+                        <option value="30m">30m</option>
+                        <option value="1h">1h</option>
+                        <option value="4h">4h</option>
+                        <option value="12h">12h</option>
+                        <option value="1d" selected>1d</option>
+                        <option value="1w">1 week</option>
+                    </select>
+                </div>
+            </label>
+          </li>
+          <li class="nav-item">
+            <label>
+                <p class="w-100 mb-0 text-black bold">Candle's limit:</p>
+                <div class="contFilt d-flex mt-0 text-white">
+                    <select class="form-select w-50 mb-2" name="select" id="selll" onchange="actualizarChart()">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="15">15</option>
+                        <option value="50">50</option>
+                        <option value="100" selected>100</option>
+                        <option value="500">500</option>
+                        <option value="1000">1000</option>
+                    </select>
+                </div>
+            </label>
+          </li>
+          <li class="nav-item">
+            <label>
+                <p class="w-100 mb-0 text-black bold">Chart type:</p>
+                <div class="contFilt d-flex mt-0 text-white">
+                    <select class="form-select w-75 mb-2" name="select" id="charttype" onchange="actualizarChart()">
+                        <option value="candlestick">Candlestick</option>
+                        <option value="line" selected>Line</option>
+                    </select>
+                </div>
+            </label>
+          </li>
+        </div>
+          <li class="nav-item">
+
+            <div class="w-100 d-flex justify-content-around flex-wrap">
+                <label class="text-black">
+                    <p class="w-100 mb-0 bold">24hs Low</p>
+                    <span id="24low"></span>
+                </label>
+                <label class="text-black">
+                    <p class="w-100 mb-0 text-black bold">24hs High</p>
+                    <span id="24high"></span>
+                </label>
+                <label class="text-black">
+                    <p class="w-100 mb-0 text-black bold">24hs Open</p>
+                    <span id="24open"></span>
+                </label>
+                <label class="text-black">
+                    <p class="w-100 mb-0 bold">24hs Close</p>
+                    <span id="24close"></span>
+                </label>
+            </div>
+
+          </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
 
 <body>
-    <div class="d-flex w-100 bg-dark flex-wrap justify-content-around">
+    <div class="d-flex w-100 flex-wrap justify-content-around" style="background-color: black;">
+        <div>
+
         <label>
-            <p class="w-100 bg-dark mb-0 text-white">Currency:</p>
-            <div class="contFilt d-flex bg-dark mt-0 text-white">
-                <select class="form-select w-75 mb-2" name="select" id="sel" onchange="actualizarChart()">
-                    <option value="BTCUSDT" selected>Bitcoin (BTC)</option>
-                    <option value="ETHUSDT">Ethereum (ETH)</option>
-                    <option value="BNBUSDT">Binance Coin (BNB)</option>
-                    <option value="SOLUSDT">Solana (SOL)</option>
-                </select>
-            </div>
-        </label>
-        <label>
-            <p class="w-100 bg-dark mb-0 text-white">Interval:</p>
-            <div class="contFilt d-flex bg-dark mt-0 text-white">
-                <select class="form-select w-75 mb-2" name="select" id="sell" onchange="actualizarChart()">
-                    <option value="1m">1m</option>
-                    <option value="5m">5m</option>
-                    <option value="15m">15m</option>
-                    <option value="30m">30m</option>
-                    <option value="1h">1h</option>
-                    <option value="4h">4h</option>
-                    <option value="12h">12h</option>
-                    <option value="1d" selected>1d</option>
-                    <option value="1w">1 week</option>
-                </select>
-            </div>
-        </label>
-        <label>
-            <p class="w-100 bg-dark mb-0 text-white">Candle's limit:</p>
-            <div class="contFilt d-flex bg-dark mt-0 text-white">
-                <select class="form-select w-75 mb-2" name="select" id="selll" onchange="actualizarChart()">
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="15">15</option>
-                    <option value="50">50</option>
-                    <option value="100" selected>100</option>
-                    <option value="500">500</option>
-                    <option value="1000">1000</option>
-                </select>
-            </div>
-        </label>
-        <label>
-            <p class="w-100 bg-dark mb-0 text-white">start Time:</p>
-            <div class="contFilt d-flex bg-dark mt-0 text-white">
+            <p class="w-100 mb-0 text-white bold">start Time:</p>
+            <div class="contFilt d-flex mt-0 text-white">
                 <input type="date" class="form-select w-75 mb-2" name="select" onchange="actualizarChart()"
                     id="starttime" disabled />
             </div>
         </label>
         <label>
-            <p class="w-100 bg-dark mb-0 text-white">end Time:</p>
-            <div class="contFilt d-flex bg-dark mt-0 text-white">
+            <p class="w-100 mb-0 text-white bold">end Time:</p>
+            <div class="contFilt d-flex mt-0 text-white">
                 <input type="date" class="form-select w-75 mb-2" name="select" onchange="actualizarChart()"
                     id="endtime" disabled/>
             </div>
         </label>
-        <label>
-            <p class="w-100 bg-dark mb-0 text-white">Chart type:</p>
-            <div class="contFilt d-flex bg-dark mt-0 text-white">
-                <select class="form-select w-75 mb-2" name="select" id="charttype" onchange="actualizarChart()">
-                    <option value="candlestick">Candlestick</option>
-                    <option value="line" selected>Line</option>
-                </select>
-            </div>
-        </label>
+        </div>
     </div>
 
     <div id="lowcont">
 
     </div>
 
-    <div id="contenedorchart">
+    <div class="w-100" id="contenedorchart">
 
-        <div id="chart"></div>
+        <div id="chart" style="width: 100wh"></div>
 
     </div>
 

@@ -4,6 +4,10 @@ let selecttt = document.getElementById('selll')
 let selectstartTime = document.getElementById('starttime')
 let selectendTime = document.getElementById('endtime')
 let chartTypee = document.getElementById('charttype')
+let low = document.getElementById('24low')
+let high = document.getElementById('24high')
+let openn = document.getElementById('24open')
+let closee = document.getElementById('24close')
 let contenedorChart = document.getElementById('contenedorchart')
 let contenedorChartBinance = document.getElementById('contenedorchartBinance')
 
@@ -72,6 +76,13 @@ function traerKDatosBinance(symbol, interval, numerodevelas, chartType) {
             selectstartTime.value = datee
 
             dibujarChart(data, symbol, chartType)
+
+            if (interval == '1d') {
+                low.innerHTML = data[(data.length)-1][3];
+                high.innerHTML = data[(data.length)-1][2];
+                openn.innerHTML = data[(data.length)-1][1];
+                closee.innerHTML = data[(data.length)-1][4]
+            }
             
 
         }
