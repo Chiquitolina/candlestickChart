@@ -1,6 +1,9 @@
 let select = document.getElementById('sel')
 let selectt = document.getElementById('sell')
 let selecttt = document.getElementById('selll')
+let selectstartTime = document.getElementById('starttime')
+let selectendTime = document.getElementById('endtime')
+let chartTypee = document.getElementById('charttype')
 let contenedorChart = document.getElementById('contenedorchart')
 let contenedorChartBinance = document.getElementById('contenedorchartBinance')
 
@@ -8,14 +11,15 @@ function crearOptionsCandlesLimit()
  {
     let options = []
  }
-function dibujarChart(data, symbol) {
+ 
+function dibujarChart(data, symbol, chartType) {
 
      let options = {
                 series: [{
                     data: []
                 }],
                 chart: {
-                    type: 'candlestick',
+                    type: chartType,
                     height: 480
                 },
                 title: {
@@ -52,26 +56,38 @@ function dibujarChart(data, symbol) {
 
 }
 
-function traerKDatosBinance(symbol, interval, numerodevelas) {
+function traerKDatosBinance(symbol, interval, numerodevelas, chartType) {
 
     fetch('https://api.binance.com/api/v3/klines?symbol=' + symbol + '&interval=' + interval + '&limit=' + numerodevelas)
         .then(response => response.json())
         .then(data => {
 
-            dibujarChart(data, symbol)
+            let today = Date.now()
+            let date = new Date(today)
+            date = date.toISOString().slice(0, 10)
+            selectendTime.value = date
+
+            let datee = new Date(data[0][0])
+            datee = datee.toISOString().slice(0, 10)
+            selectstartTime.value = datee
+
+            dibujarChart(data, symbol, chartType)
+            
 
         }
         )
+
 }
 
 function actualizarChart() {
     let opcionseleccionada = select.selectedOptions[0].value
     let limitevelasseleccionado = selecttt.selectedOptions[0].value
     let intervaloseleccionado = selectt.selectedOptions[0].value
-    traerKDatosBinance(opcionseleccionada, intervaloseleccionado, limitevelasseleccionado)
+    let typeseleccionado = chartTypee.selectedOptions[0].value
+    traerKDatosBinance(opcionseleccionada, intervaloseleccionado, limitevelasseleccionado, typeseleccionado)
 }
 
-traerKDatosBinance('BTCUSDT', '1d', 500)
+traerKDatosBinance('BTCUSDT', '1d', 100, 'line')
 
 
 
