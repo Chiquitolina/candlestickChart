@@ -14,22 +14,24 @@
 </head>
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">MyTradingViewXD</a>
+      <a class="navbar-brand" href="#">CryptoView</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column w-100">
+            <div class="w-100 d-flex">
             <form class="d-flex w-100 justify-content-center" role="search">
                 <input class="form-control me-2 w-25" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
               </form>
+            </div>
             <div class="d-flex flex-wrap justify-content-center">
           <li class="nav-item">
             <label>
                 <p class="w-100 mb-0 text-black bold">Currency:</p>
                 <div class="contFilt d-flex mt-0 text-white">
-                    <select class="form-select w-50 mb-2" name="select" id="sel" onchange="actualizarChart()">
+                    <select class="form-select w-75 mb-2" name="select" id="sel" onchange="actualizarChart()">
                         <option value="BTCUSDT" selected>Bitcoin (BTC)</option>
                         <option value="ETHUSDT">Ethereum (ETH)</option>
                         <option value="BNBUSDT">Binance Coin (BNB)</option>
@@ -42,7 +44,7 @@
             <label>
                 <p class="w-100 mb-0 text-black bold">Interval:</p>
                 <div class="contFilt d-flex mt-0 text-white">
-                    <select class="form-select w-50 mb-2" name="select" id="sell" onchange="actualizarChart()">
+                    <select class="form-select w-75 mb-2" name="select" id="sell" onchange="actualizarChart()">
                         <option value="1m">1m</option>
                         <option value="5m">5m</option>
                         <option value="15m">15m</option>
@@ -60,7 +62,7 @@
             <label>
                 <p class="w-100 mb-0 text-black bold">Candle's limit:</p>
                 <div class="contFilt d-flex mt-0 text-white">
-                    <select class="form-select w-50 mb-2" name="select" id="selll" onchange="actualizarChart()">
+                    <select class="form-select w-75 mb-2" name="select" id="selll" onchange="actualizarChart()">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -84,6 +86,31 @@
                 </div>
             </label>
           </li>
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav border rounded">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Date Range
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><label>
+                    <p class="w-100 mb-0 text-white bold">start Time:</p>
+                    <div class="contFilt d-flex mt-0 text-white">
+                        <input type="date" class="form-select w-75 mb-2" name="select" onchange="actualizarChart()"
+                            id="starttime" disabled />
+                    </div>
+                </label></li>
+                  <li><label>
+                    <p class="w-100 mb-0 text-white bold">end Time:</p>
+                    <div class="contFilt d-flex mt-0 text-white">
+                        <input type="date" class="form-select w-75 mb-2" name="select" onchange="actualizarChart()"
+                            id="endtime" disabled/>
+                    </div>
+                </label></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
           <li class="nav-item">
 
@@ -117,21 +144,7 @@
 <body>
     <div class="d-flex w-100 flex-wrap justify-content-around" style="background-color: black;">
         <div>
-
-        <label>
-            <p class="w-100 mb-0 text-white bold">start Time:</p>
-            <div class="contFilt d-flex mt-0 text-white">
-                <input type="date" class="form-select w-75 mb-2" name="select" onchange="actualizarChart()"
-                    id="starttime" disabled />
-            </div>
-        </label>
-        <label>
-            <p class="w-100 mb-0 text-white bold">end Time:</p>
-            <div class="contFilt d-flex mt-0 text-white">
-                <input type="date" class="form-select w-75 mb-2" name="select" onchange="actualizarChart()"
-                    id="endtime" disabled/>
-            </div>
-        </label>
+        
         </div>
     </div>
 
