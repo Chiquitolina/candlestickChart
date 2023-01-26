@@ -71,6 +71,7 @@ function traerDatos() {
                 symbolss.push(simbolo.symbol);
             })
 
+
             symbolss.forEach(simbolo => {
                 option = document.createElement('option')
                 option.value = simbolo
