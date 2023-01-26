@@ -24,7 +24,8 @@ function dibujarChart(data, symbol, chartType) {
                 }],
                 chart: {
                     type: chartType,
-                    height: 480
+                    height: 480,
+                    width: '98.99999%'
                 },
                 title: {
                     text: symbol + ' Chart',
@@ -57,6 +58,27 @@ function dibujarChart(data, symbol, chartType) {
             chartBinance.render();
 
     
+
+}
+
+function traerDatos() {
+
+    fetch('https://api.binance.com/api/v3/exchangeInfo')
+        .then(response => response.json())
+        .then(data => {
+            let symbolss = []
+            data.symbols.forEach(simbolo => {
+                symbolss.push(simbolo.symbol);
+            })
+
+            symbolss.forEach(simbolo => {
+                option = document.createElement('option')
+                option.value = simbolo
+                option.innerHTML = simbolo
+                select.appendChild(option)
+            })
+
+        } )
 
 }
 
@@ -99,6 +121,7 @@ function actualizarChart() {
 }
 
 traerKDatosBinance('BTCUSDT', '1d', 100, 'line')
+traerDatos()
 
 
 
