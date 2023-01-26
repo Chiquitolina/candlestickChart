@@ -21,10 +21,6 @@
       <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column w-100">
             <div class="w-100 d-flex">
-            <form class="d-flex w-100 justify-content-center" role="search">
-                <input class="form-control me-2 w-25" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
             </div>
             <div class="d-flex flex-wrap justify-content-center align-items-center">
           <li class="nav-item">
@@ -89,10 +85,10 @@
           <div id="navbarNavDarkDropdown">
             <ul class="navbar-nav border rounded">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" disabled>
                   Date Range
                 </a>
-                <ul class="dropdown-menu dropdown-menu-dark">
+                <ul class="dropdown-menu dropdown-menu-dark" style="width:1rem">
                   <li><label>
                     <p class="w-100 mb-0 text-white bold">start Time:</p>
                     <div class="contFilt d-flex mt-0 text-white">
@@ -115,19 +111,19 @@
           <li class="nav-item">
 
             <div class="w-100 d-flex justify-content-around flex-wrap">
-                <label class="text-black">
+                <label class="text-black hs">
                     <p class="w-100 mb-0 bold">24hs Low</p>
                     <span id="24low"></span>
                 </label>
-                <label class="text-black">
+                <label class="text-black hs">
                     <p class="w-100 mb-0 text-black bold">24hs High</p>
                     <span id="24high"></span>
                 </label>
-                <label class="text-black">
+                <label class="text-black hs">
                     <p class="w-100 mb-0 text-black bold">24hs Open</p>
                     <span id="24open"></span>
                 </label>
-                <label class="text-black">
+                <label class="text-black hs">
                     <p class="w-100 mb-0 bold">24hs Close</p>
                     <span id="24close"></span>
                 </label>

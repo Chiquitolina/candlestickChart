@@ -12,3 +12,10 @@
     font-weight: bold;
 }
 
+.hs {
+border: 1px solid black;
+border-radius: 5px;
+padding: 0.3rem;
+background-color: white;
+}
+
